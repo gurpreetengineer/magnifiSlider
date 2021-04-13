@@ -1,10 +1,21 @@
-import DateSlider from './Components/main'
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+// } from "react-router-dom";
+import Slider from './Components/Slider'
 import styled from 'styled-components'
-
+// import Dummy from './Components/dummy'
 function App() {
   return (
     <MainContainer>
-      <DateSlider initial={10} max={25} />
+      <Slider />
+      {/* <Dummy />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Dummy}/> 
+        </Switch>
+      </Router> */}
     </MainContainer>
   );
 }
