@@ -10,13 +10,11 @@ const getValue = (percentage, max) => (max / 100) * percentage;
 // Because the slider's width is 5%. So, we'll subtract that from
 // total percentage so to not overflow the 100% width.
 
-function SingleBar({initial, max, onChange, positionSliderRef, positionSimpleRef, containerRef, DateSelected, formatFn = number => number.toFixed(0) 
+function SingleBar({initial, max, onChange, positionSliderRef, positionSimpleRef, containerRef, DateSelected
 }) {
   const initialPercentage = getPercentage(initial, max);
 
   const handleMouseMove = event => {
-    // console.log("windw", window.pageXOffset)
-    // console.log("windooow", window)
     let newX = event.clientX - positionSimpleRef.current - containerRef.current.getBoundingClientRect().left;
     const endAxis = containerRef.current.offsetWidth - 
     positionSliderRef.current.offsetWidth;

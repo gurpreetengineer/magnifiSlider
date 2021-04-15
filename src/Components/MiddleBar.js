@@ -2,58 +2,42 @@ import React, {useRef} from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-<<<<<<< HEAD
-function MiddleBar({ startPoint, endPoint, initial, max }) {
+function MiddleBar({ startPoint, endPoint, initial, max, halfPixels, totalPixels, centToPixelRatio, endPointHelper, dateAddCent}) {
   startPoint = isNaN(startPoint) ? initial : startPoint;
   endPoint = isNaN(endPoint) ? max : endPoint;
   console.log("startPoint", startPoint)
   console.log("endPoint", endPoint) 
-  console.log("&&&", initial) 
+  console.log("&&&", endPointHelper) 
   return (
     <div>
       {/* First Slider */} 
-      {/* I did 5/8 because, width was 50% and I have equally divide it by 80px.
+      {/* I did 5/1.55 because, width was 50% and I have equally divide it by 1.55px.
+      (31 days divided into half = 15.5. Why half? because I have divided single container into two equal parts [50% each])
       So to divide 80px into 50 equal parts. I did this.*/}
       {/* Simple sliders */}
-      {startPoint < 80 && <StartSlider  
-        style={{ left: `calc(${startPoint * (5/8) + 1}%)`, width: `calc(50% - ${startPoint * (5/8)}% + 1%)`}} 
+      {startPoint < halfPixels && <StartSlider  
+        style={{ left: `calc(${startPoint * centToPixelRatio + dateAddCent}%)`, width: `calc(50% - ${startPoint * centToPixelRatio}% + 1%)`}} 
       />}     
-      {/* Second Sliders */}
-      {endPoint > 80 && <StartSlider  
-        style={{marginLeft: '50%', width:`calc(${endPoint/1.6}% - 50%)`}} 
+      {/* Second Slider */}
+      { <StartSlider  
+        style={{marginLeft: '50%', width:`calc(${(endPoint * endPointHelper)/totalPixels}% - 50%)`}} 
       />}
 
       {/* Negative/ opposite sliders */}
       {<StartSlider  
-        style={{ left: '49%', width: `calc(${startPoint * (5/8)}% - 49%)`}} 
+        style={{ left: '49%', width: `calc(${startPoint * centToPixelRatio}% - 49%)`}} 
       />}     
-      {/* Second Sliders */}
-      {endPoint < 80 && <StartSlider  
-        style={{marginLeft: `calc(${endPoint * (5/8)}% + 1%)`, width:`calc(50% - ${endPoint * (5/8)}%)`}} 
+      {/* Second Slider */}
+      {endPoint < halfPixels && <StartSlider  
+        style={{marginLeft: `calc(${endPoint * centToPixelRatio}% + 1%)`, width:`calc(50% - ${endPoint * centToPixelRatio}%)`}} 
       />}
-=======
-function MiddleBar({ startPoint, endPoint }) {
-  console.log("startPoint", startPoint)
-  console.log("endPoint", endPoint)  
-  return (
-    <div> 
-      <StartSlider  
-        style={{marginLeft: `calc(${startPoint/1.6}%)`, width: `calc(${endPoint/1.6}% - ${startPoint}% )`}} 
-      />
->>>>>>> bfb73ba0d7d62bfefb55036b7ed84eff8d01df23
     </div>
   )
 }
 
 const StartSlider = styled.div`
-<<<<<<< HEAD
   // width: 100%;
   height: 5px;
-=======
-  width: 100%;
-  height: 5px;
-  // left: 60px;
->>>>>>> bfb73ba0d7d62bfefb55036b7ed84eff8d01df23
   border-radius: 3px;
   position: absolute;
   top: 0px;
@@ -68,12 +52,13 @@ MiddleBar.propTypes = {
   endPoint: propTypes.number, 
   max: propTypes.number, 
   onChange: propTypes.func, 
-  formatFn: propTypes.func
+  formatFn: propTypes.func,
+  dateAddCent: propTypes.number
 }
 
-// MiddleBar.defaultProps ={
-//   startPoint: "1", 
-//   endPoint: "88"  
-// }
+MiddleBar.defaultProps ={
+  dateAddCent: 0
+
+}
 
 export default MiddleBar;

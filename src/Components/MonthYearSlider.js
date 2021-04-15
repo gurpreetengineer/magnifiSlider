@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import styled from 'styled-components';
 import SingleBar from './SingleBar'
 import MiddleBar from './MiddleBar'
-function Slider() {
+function MonthYearSlider() {
   const containerRef = useRef(null);
 
   const startSliderRef = useRef();  
@@ -11,16 +11,12 @@ function Slider() {
   const endSliderRef = useRef();
   const endSimpleRef = useRef();
 
-  const middleSliderRef = useRef();
-  const middleSimpleRef = useRef();
-
   const [finalDateFormat, setFinalDateFormat] = useState('');
   const [finalDateFormatBarTwo, setFinalDateFormatBarTwo] = useState('');
 
   const [middleBarStartPoint, setMiddleBarStartPoint] = useState();
   const [middleBarEndPoint, setMiddleBarEndPoint] = useState();
-  
-  
+    
   const months = {
     0: "Jan",
     1: "Feb",
@@ -49,7 +45,7 @@ function Slider() {
   return (
     <Parent>
       <Container ref={containerRef}>
-        <SingleBar initial={1} max={160} onChange={
+        <SingleBar initial={1} max={159} onChange={
         value => {
           setMiddleBarStartPoint(value);
           setFinalDateFormat(DateManipulation(value))}} 
@@ -59,28 +55,18 @@ function Slider() {
         containerRef={containerRef}/>
 
 
-<<<<<<< HEAD
         <MiddleBar initial={0} max={140}
         startPoint={parseInt(middleBarStartPoint)}
         endPoint={parseInt(middleBarEndPoint)}
-        positionSliderRef={middleSliderRef}
-        positionSimpleRef={middleSimpleRef} 
-        containerRef={containerRef}/>
-        <MiddleBar initial={80} max={80}
-=======
-        <MiddleBar initial={10} max={160}
->>>>>>> bfb73ba0d7d62bfefb55036b7ed84eff8d01df23
+        halfPixels={80} totalPixels={160/100} centToPixelRatio={5/8}
+        endPointHelper={1}
+        />
+        {/* <MiddleBar initial={80} max={80}
         startPoint={parseInt(middleBarStartPoint)}
-        endPoint={parseInt(middleBarEndPoint)}
-        positionSliderRef={middleSliderRef}
-        positionSimpleRef={middleSimpleRef} 
-        containerRef={containerRef}/>
-<<<<<<< HEAD
-=======
-        
->>>>>>> bfb73ba0d7d62bfefb55036b7ed84eff8d01df23
+        endPoint={parseInt(middleBarEndPoint)} 
+        halfPixels={80} totalPixels={160/100} centToPixelRatio={5/8}/> */}
 
-        <SingleBar initial={140} max={160} onChange={
+        <SingleBar initial={140} max={159} onChange={
         value => {
           setMiddleBarEndPoint(value)
           setFinalDateFormatBarTwo(DateManipulation(value))}} 
@@ -104,4 +90,4 @@ const Container = styled.div`
   height: 5px;
 `;
 
-export default Slider
+export default MonthYearSlider

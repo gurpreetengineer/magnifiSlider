@@ -3,13 +3,17 @@
 //   Switch,
 //   Route,
 // } from "react-router-dom";
-import Slider from './Components/Slider'
 import styled from 'styled-components'
+import MonthYearSlider from './Components/MonthYearSlider'
+import DateSlider from './Components/DateSlider'
+import TimeSlider from './Components/TimeSlider'
 // import Dummy from './Components/dummy'
 function App() {
   return (
     <MainContainer>
-      <Slider />
+      <MonthYearSlider />
+      <DateSlider />
+      <TimeSlider />
       {/* <Dummy />
       <Router>
         <Switch>
