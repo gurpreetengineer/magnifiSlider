@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
+<<<<<<< HEAD
 function MiddleBar({ startPoint, endPoint, initial, max }) {
   startPoint = isNaN(startPoint) ? initial : startPoint;
   endPoint = isNaN(endPoint) ? max : endPoint;
@@ -30,13 +31,29 @@ function MiddleBar({ startPoint, endPoint, initial, max }) {
       {endPoint < 80 && <StartSlider  
         style={{marginLeft: `calc(${endPoint * (5/8)}% + 1%)`, width:`calc(50% - ${endPoint * (5/8)}%)`}} 
       />}
+=======
+function MiddleBar({ startPoint, endPoint }) {
+  console.log("startPoint", startPoint)
+  console.log("endPoint", endPoint)  
+  return (
+    <div> 
+      <StartSlider  
+        style={{marginLeft: `calc(${startPoint/1.6}%)`, width: `calc(${endPoint/1.6}% - ${startPoint}% )`}} 
+      />
+>>>>>>> bfb73ba0d7d62bfefb55036b7ed84eff8d01df23
     </div>
   )
 }
 
 const StartSlider = styled.div`
+<<<<<<< HEAD
   // width: 100%;
   height: 5px;
+=======
+  width: 100%;
+  height: 5px;
+  // left: 60px;
+>>>>>>> bfb73ba0d7d62bfefb55036b7ed84eff8d01df23
   border-radius: 3px;
   position: absolute;
   top: 0px;

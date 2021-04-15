@@ -59,6 +59,7 @@ function Slider() {
         containerRef={containerRef}/>
 
 
+<<<<<<< HEAD
         <MiddleBar initial={0} max={140}
         startPoint={parseInt(middleBarStartPoint)}
         endPoint={parseInt(middleBarEndPoint)}
@@ -66,11 +67,18 @@ function Slider() {
         positionSimpleRef={middleSimpleRef} 
         containerRef={containerRef}/>
         <MiddleBar initial={80} max={80}
+=======
+        <MiddleBar initial={10} max={160}
+>>>>>>> bfb73ba0d7d62bfefb55036b7ed84eff8d01df23
         startPoint={parseInt(middleBarStartPoint)}
         endPoint={parseInt(middleBarEndPoint)}
         positionSliderRef={middleSliderRef}
         positionSimpleRef={middleSimpleRef} 
         containerRef={containerRef}/>
+<<<<<<< HEAD
+=======
+        
+>>>>>>> bfb73ba0d7d62bfefb55036b7ed84eff8d01df23
 
         <SingleBar initial={140} max={160} onChange={
         value => {
