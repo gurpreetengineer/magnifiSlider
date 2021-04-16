@@ -25,21 +25,12 @@ function MiddleBar({ startPoint, endPoint, initial, max, halfPixels, totalPixels
       {/* Simple sliders */}
       { <StartSlider  
         style={{ left: `calc(${startPoint * centToPixelRatio + dateAddCent}%)`, width: `calc(${endPoint * centToPixelRatio}% - ${startPoint * centToPixelRatio}% + 1% + ${dateAddCent}%)`}} 
-      />}     
-      {/* Second Slider */}
-      {/* { <StartSlider  
-        style={{marginLeft
-          : '50%', width:`calc(${(endPoint * endPointHelper)/totalPixels}% - 50% + ${timePixelManager}%)`}} 
-      />} */}
-
+      />}   
+       
       {/* Negative/ opposite sliders */}
       {<StartSlider  
         style={{ left: `calc(${endPoint * centToPixelRatio}% + 1%)`, width: `calc(${startPoint * centToPixelRatio}% - calc(${endPoint * centToPixelRatio}% + 1%) + ${timePixelManager}% + ${dayPixelManager}%)`}} 
       />}      
-      {/* Second Slider
-      {/* {endPoint < halfPixels && <StartSlider  
-        style={{marginLeft: `calc(${endPoint * centToPixelRatio}% + 1%)`, width:`calc(50% - ${endPoint * centToPixelRatio}%)`}} 
-      />} */}
     </div>
   )
 }

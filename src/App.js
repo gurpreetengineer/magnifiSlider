@@ -1,8 +1,3 @@
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-// } from "react-router-dom";
 import styled from 'styled-components'
 import MonthYearSlider from './Components/MonthYearSlider'
 import DateSlider from './Components/DateSlider'
@@ -35,12 +30,6 @@ function App() {
         <Heading>Seconds Slider</Heading>
         <SecondSlider />
       </Container>
-      {/* <Dummy />
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Dummy}/> 
-        </Switch>
-      </Router> */}
     </MainContainer>
   );
 }
