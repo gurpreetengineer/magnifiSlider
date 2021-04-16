@@ -60,8 +60,11 @@ const MainContainer = styled.div`
 `;
 
 const Heading = styled.p`
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 8%;
+  font-family: calibri;
+  font-weight: 600;
+  font-variant-caps: small-caps;
 `;
 
 export default App;
