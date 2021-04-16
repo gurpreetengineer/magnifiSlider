@@ -50,7 +50,6 @@ function SingleBar({initial, max, onChange, positionSliderRef, positionSimpleRef
     document.removeEventListener('mousemove', handleMouseMove)
   }
 
-  console.log("getLeft:::::::", getLeft(initialPercentage))
   return (
     <div> 
       {/* <Container ref={containerRef} > */}
@@ -59,21 +58,32 @@ function SingleBar({initial, max, onChange, positionSliderRef, positionSimpleRef
         style={{left: getLeft(initialPercentage)}} 
         onMouseDown={handleMouseDown}
       >
-        <BarTitle>{DateSelected}</BarTitle>
+        <BarContainer>
+          <BarTitle>{DateSelected}</BarTitle>
+        </BarContainer>
       </StartSlider>
     </div>
   )
 }
 
 const BarTitle = styled.p`
+  // content: "";
+  width: max-content;
+  // position: absolute;
+  // top: -87%;
+  // font-size: 10px;
+  // margin: 16px -18px 0px -12px;
+  // border-color: #555 transparent transparent transparent;
+`;
+const BarContainer = styled.div`
   content: "";
+  width:  max-content;
   position: absolute;
-  top: -87%;
-  font-size: 8px;
+  top: -120%;
+  font-size: 10px;
   margin: 16px -18px 0px -12px;
   border-color: #555 transparent transparent transparent;
 `;
-
 const StartSlider = styled.div`
   width: 5px;
   height: 33px;

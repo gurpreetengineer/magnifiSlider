@@ -12,16 +12,12 @@ const startSliderRef = useRef();
   const endSliderRef = useRef();
   const endSimpleRef = useRef();
 
-  const [finalDateFormat, setFinalDateFormat] = useState('');
-  const [finalDateFormatBarTwo, setFinalDateFormatBarTwo] = useState('');
+  const [finalDateFormat, setFinalDateFormat] = useState('0 : 0 : 0 : 0');
+  const [finalDateFormatBarTwo, setFinalDateFormatBarTwo] = useState('12 : 0 : 0 : 0');
 
   const [middleBarStartPoint, setMiddleBarStartPoint] = useState();
   const [middleBarEndPoint, setMiddleBarEndPoint] = useState();
-  const hours = Array.from([...Array(24+1).keys()].slice(1))
-  const minutes = Array.from([...Array(60+1).keys()].slice(1))
-  const seconds = Array.from([...Array(60+1).keys()].slice(1))
-  const milliSeconds = Array.from([...Array(100+1).keys()].slice(1))
-
+ 
   const finalContainerPixels = 8640000; // 24 * 60 * 60 * 100;
 
   const DayManipulation = (initial) => {
@@ -29,11 +25,14 @@ const startSliderRef = useRef();
     let currentHour =  Math.floor(initial / 360000)
 
     // for every 6000, a minute should increment
-    var currentMinutes = Math.floor(initial / 60000);
+    var currentMinutes = Math.floor(initial / 6000);
     
     // for every 100, a second should increment
     var currentSeconds = ((initial % 60000) / 1000).toFixed(0);
     
+    // for every 1 millisecond
+    var currentMilliSeconds = parseInt(initial).toString().substr(-2);
+
     // if 60 seconds, return 0 sec and add 1 to minutes
     currentMinutes = currentSeconds === 60 ? currentMinutes + 1 : currentMinutes; 
 
@@ -41,18 +40,21 @@ const startSliderRef = useRef();
     currentMinutes = currentMinutes > 60 ? currentMinutes % 60 : currentMinutes;
 
     // if minutes are > 60. then divide them with 60 and increase the hour by quotient
-    currentHour = currentMinutes > 60 ? currentHour + (currentMinutes/60) : currentHour;
+    currentHour = currentMinutes > 60 ? (currentHour + (currentMinutes/60)) : currentHour;
 
-    console.log("------------------------")
-    console.log("initial", initial)
     console.log("currentHour", currentHour)
     console.log("currentMinutes", currentMinutes)
     console.log("currentSeconds", currentSeconds)
+    console.log("currentMilliSeconds", currentMilliSeconds)
 
-    // return finalDate;
+    //if it's done:
+    if(currentHour === 23 && currentMinutes === 59 && currentSeconds === "60"){
+      return '24 hour';
+    }
+
+
+    return `${currentHour} : ${currentMinutes} : ${currentSeconds} : ${currentMilliSeconds}`;
   };
-
-  console.log("finalDateFormat", finalDateFormat)
 
   return (
     <Parent>
@@ -67,13 +69,14 @@ const startSliderRef = useRef();
         positionSimpleRef={startSimpleRef} 
         containerRef={containerRef}/>
 
-        <MiddleBar initial={3} max={27}
+        <MiddleBar initial={3} max={finalContainerPixels/2}
         startPoint={middleBarStartPoint}
-        endPoint={middleBarEndPoint} halfPixels={finalContainerPixels/2} totalPixels={3} centToPixelRatio={5/1.55}
-        dateAddCent={1} endPointHelper={10}/>
+        endPoint={middleBarEndPoint} halfPixels={finalContainerPixels/2} totalPixels={finalContainerPixels/100} centToPixelRatio={50/(finalContainerPixels/2)}
+        dateAddCent={0} endPointHelper={1}/>
 
-        <SingleBar initial={27000} max={finalContainerPixels-1} onChange={
+        <SingleBar initial={finalContainerPixels/2} max={finalContainerPixels-1} onChange={
         value => {
+          console.log("calueeeeee", value)
           setMiddleBarEndPoint(value)
           setFinalDateFormatBarTwo(DayManipulation(parseInt(value)))}} 
         DateSelected={finalDateFormatBarTwo}   
@@ -87,7 +90,7 @@ const startSliderRef = useRef();
 
 const Parent = styled.div`
   padding: 10px;
-  margin-top: 10%;
+  margin-top: 5%;
 `;
 
 const Container = styled.div`

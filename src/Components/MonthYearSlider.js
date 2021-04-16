@@ -11,8 +11,8 @@ function MonthYearSlider() {
   const endSliderRef = useRef();
   const endSimpleRef = useRef();
 
-  const [finalDateFormat, setFinalDateFormat] = useState('');
-  const [finalDateFormatBarTwo, setFinalDateFormatBarTwo] = useState('');
+  const [finalDateFormat, setFinalDateFormat] = useState('Jan 2008');
+  const [finalDateFormatBarTwo, setFinalDateFormatBarTwo] = useState('Sep 2019');
 
   const [middleBarStartPoint, setMiddleBarStartPoint] = useState();
   const [middleBarEndPoint, setMiddleBarEndPoint] = useState();
@@ -39,7 +39,7 @@ function MonthYearSlider() {
     let year = 2008;
     year += yearDependency;
     let finalDate = monthName + " " + year;
-    return finalDate;
+    return `${monthName} ${year}`;
   };
 
   return (
@@ -81,6 +81,7 @@ function MonthYearSlider() {
 
 const Parent = styled.div`
   padding: 10px;
+  margin-top: 5%;
 `;
 
 const Container = styled.div`
