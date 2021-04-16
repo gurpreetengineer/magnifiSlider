@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import MonthYearSlider from './Components/MonthYearSlider'
-import DateSlider from './Components/DateSlider'
-import TimeSlider from './Components/TimeSlider'
-import HourSlider from './Components/subSliders/HourSlider';
-import MinuteSlider from './Components/subSliders/MinuteSlider';
-import SecondSlider from './Components/subSliders/SecondSlider';
+import MonthYearSlider from './components/MonthYearSlider'
+import DateSlider from './components/DateSlider'
+import TimeSlider from './components/TimeSlider'
+import HourSlider from './components/subSliders/HourSlider';
+import MinuteSlider from './components/subSliders/MinuteSlider';
+import SecondSlider from './components/subSliders/SecondSlider';
 
 
 function App() {

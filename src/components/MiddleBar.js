@@ -1,19 +1,11 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
 function MiddleBar({ startPoint, endPoint, initial, max, halfPixels, totalPixels, centToPixelRatio, timePixelManager = 0, endPointHelper, dayPixelManager = 0, dateAddCent}) {
   startPoint = isNaN(startPoint) ? initial : startPoint;
   endPoint = isNaN(endPoint) ? max : endPoint;
-  console.log("startPoint", startPoint)
-  console.log("endPoint", endPoint) 
-  console.log("&&&", endPointHelper) 
-  console.log("halfPixels", halfPixels) 
-  console.log("totalPixels", totalPixels) 
-  console.log("centToPixelRatio", centToPixelRatio) 
-  console.log("endPoint * endPointHelper", endPoint * endPointHelper)
-  console.log("timePixelManager", timePixelManager)
-
+  
   return (
     <div>
       {/* First Slider */} 

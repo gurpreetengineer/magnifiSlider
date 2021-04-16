@@ -38,7 +38,6 @@ function MonthYearSlider() {
     let yearDependency = parseInt(initial/12);
     let year = 2008;
     year += yearDependency;
-    let finalDate = monthName + " " + year;
     return `${monthName} ${year}`;
   };
 

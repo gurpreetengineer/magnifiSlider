@@ -37,7 +37,7 @@ const startSliderRef = useRef();
         <MiddleBar initial={1} max={18}
         startPoint={middleBarStartPoint}
         endPoint={middleBarEndPoint} halfPixels={24/2} totalPixels={24/100} centToPixelRatio={50/(24/2)}
-        dateAddCent={0} endPointHelper={1} timePixelManager={3.2} />
+        dateAddCent={1} endPointHelper={1} timePixelManager={3.2} />
 
         <SingleBar initial={18} max={24-1} onChange={
         value => {
