@@ -42,11 +42,6 @@ const startSliderRef = useRef();
     // if minutes are > 60. then divide them with 60 and increase the hour by quotient
     currentHour = currentMinutes > 60 ? (currentHour + (currentMinutes/60)) : currentHour;
 
-    console.log("currentHour", currentHour)
-    console.log("currentMinutes", currentMinutes)
-    console.log("currentSeconds", currentSeconds)
-    console.log("currentMilliSeconds", currentMilliSeconds)
-
     //if it's done:
     if(currentHour === 23 && currentMinutes === 59 && currentSeconds === "60"){
       return '24 hour';
@@ -61,7 +56,6 @@ const startSliderRef = useRef();
       <Container ref={containerRef}>
         <SingleBar initial={1} max={finalContainerPixels-1} onChange={
         value => {
-          console.log("DAYYYYYYYYYY", value)
           setMiddleBarStartPoint(value);
           setFinalDateFormat(DayManipulation(parseInt(value)))}} 
         DateSelected={finalDateFormat} 
@@ -76,7 +70,6 @@ const startSliderRef = useRef();
 
         <SingleBar initial={finalContainerPixels/2} max={finalContainerPixels-1} onChange={
         value => {
-          console.log("calueeeeee", value)
           setMiddleBarEndPoint(value)
           setFinalDateFormatBarTwo(DayManipulation(parseInt(value)))}} 
         DateSelected={finalDateFormatBarTwo}   

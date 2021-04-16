@@ -32,7 +32,6 @@ function DateSlider() {
       <Container ref={containerRef}>
         <SingleBar initial={3} max={days.length-1} onChange={
         value => {
-          console.log("DAYYYYYYYYYY", value)
           setMiddleBarStartPoint(value);
           setFinalDateFormat(DayManipulation(parseInt(value)))}} 
         DateSelected={finalDateFormat} 
@@ -45,7 +44,7 @@ function DateSlider() {
         endPoint={middleBarEndPoint} halfPixels={days.length/2} totalPixels={3} centToPixelRatio={5/1.55}
         timePixelManager={0}
         dayPixelManager={3}
-        dateAddCent={1} endPointHelper={10}/>
+        dateAddCent={0.5} endPointHelper={10}/>
 
         <SingleBar initial={27} max={days.length-1} onChange={
         value => {

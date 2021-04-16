@@ -27,7 +27,6 @@ const startSliderRef = useRef();
       <Container ref={containerRef}>
         <SingleBar initial={5} max={60-1} onChange={
         value => {
-          console.log("DAYYYYYYYYYY", value)
           setMiddleBarStartPoint(value);
           setFinalDateFormat(SecondsManipulation(parseInt(value)))}} 
         DateSelected={finalDateFormat} 
@@ -42,7 +41,6 @@ const startSliderRef = useRef();
 
         <SingleBar initial={60/1.5} max={60-1} onChange={
         value => {
-          console.log("calueeeeee", value)
           setMiddleBarEndPoint(value)
           setFinalDateFormatBarTwo(SecondsManipulation(parseInt(value)))}} 
         DateSelected={finalDateFormatBarTwo}   

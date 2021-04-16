@@ -17,27 +17,29 @@ function MiddleBar({ startPoint, endPoint, initial, max, halfPixels, totalPixels
   return (
     <div>
       {/* First Slider */} 
-      {/* I did 5/1.55 because, width was 50% and I have equally divide it by 1.55px.
-      (31 days divided into half = 15.5. Why half? because I have divided single container into two equal parts [50% each])
-      So to divide 80px into 50 equal parts. I did this.*/}
+      {/* CentToPixelRatio is:
+      Cent could be either 100% or 50%.
+      Pixels could be the number of days, hours, years, minutes, seconds and more.
+      So, I decided to divide the container equally by dividing percentage by pixels.*/}
+      
       {/* Simple sliders */}
-      {startPoint < halfPixels && <StartSlider  
-        style={{ left: `calc(${startPoint * centToPixelRatio + dateAddCent}%)`, width: `calc(50% - ${startPoint * centToPixelRatio}% + 1%)`}} 
+      { <StartSlider  
+        style={{ left: `calc(${startPoint * centToPixelRatio + dateAddCent}%)`, width: `calc(${endPoint * centToPixelRatio}% - ${startPoint * centToPixelRatio}% + 1% + ${dateAddCent}%)`}} 
       />}     
       {/* Second Slider */}
-      { <StartSlider  
+      {/* { <StartSlider  
         style={{marginLeft
           : '50%', width:`calc(${(endPoint * endPointHelper)/totalPixels}% - 50% + ${timePixelManager}%)`}} 
-      />}
+      />} */}
 
       {/* Negative/ opposite sliders */}
       {<StartSlider  
-        style={{ left: '49%', width: `calc(${startPoint * centToPixelRatio}% - 49% + ${timePixelManager}% + ${dayPixelManager}%)`}} 
-      />}     
-      {/* Second Slider */}
-      {endPoint < halfPixels && <StartSlider  
+        style={{ left: `calc(${endPoint * centToPixelRatio}% + 1%)`, width: `calc(${startPoint * centToPixelRatio}% - calc(${endPoint * centToPixelRatio}% + 1%) + ${timePixelManager}% + ${dayPixelManager}%)`}} 
+      />}      
+      {/* Second Slider
+      {/* {endPoint < halfPixels && <StartSlider  
         style={{marginLeft: `calc(${endPoint * centToPixelRatio}% + 1%)`, width:`calc(50% - ${endPoint * centToPixelRatio}%)`}} 
-      />}
+      />} */}
     </div>
   )
 }
